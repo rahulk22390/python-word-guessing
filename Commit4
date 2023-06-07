@@ -1,0 +1,102 @@
+
+        execute(pc, v, l, g, e)
+        v = 0
+        l = 0
+        g = 0
+        e = 0
+        pc += 1
+
+    elif line[:5] == '01101':
+
+        r1 = line[10:13]
+        r2 = line[13:16]
+
+        r1_dec = int(r1, 2)
+        r2_dec = int(r2, 2)
+
+        registers[r1_dec] = bin_func_16(~r2_dec)
+
+        execute(pc, v, l, g, e)
+        v = 0
+        l = 0
+        g = 0
+        e = 0
+        pc += 1
+
+    elif line[:5] == '01110':
+
+        r1 = line[10:13]
+        r2 = line[13:16]
+
+        r1_dec = int(r1, 2)
+        r2_dec = int(r2, 2)
+
+        if registers[r1_dec] < registers[r2_dec]:
+            l = 1
+        elif registers[r1_dec] > registers[r2_dec]:
+            g = 1
+        elif registers[r1_dec] == registers[r2_dec]:
+            e = 1
+
+        execute(pc, v, l, g, e)
+        v_ = v
+        l_ = l
+        g_ = g
+        e_ = e
+        v = 0
+        l = 0
+        g = 0
+        e = 0
+        pc += 1
+
+    elif line[:5] == '01111':
+
+        execute(pc, v, l, g, e)
+        v = 0
+        l = 0
+        g = 0
+        e = 0
+        pc += 1
+
+    elif line[:5] == '11100':
+
+        execute(pc, v, l, g, e)
+        v = 0
+        l = 0
+        g = 0
+        e = 0
+        pc += 1
+
+    elif line[:5] == '11101':
+
+        execute(pc, v, l, g, e)
+        v = 0
+        l = 0
+        g = 0
+        e = 0
+        pc += 1
+
+    elif line[:5] == '11111':
+
+        execute(pc, v, l, g, e)
+        v = 0
+        l = 0
+        g = 0
+        e = 0
+        pc += 1
+
+    elif line[:5] == '11010':
+
+        execute(pc, v, l, g, e)
+        v = 0
+        l = 0
+        g = 0
+        e = 0
+
+memory = open(r"C:\Users\nisha\Downloads\trial_mem.txt", "a")
+
+for i in mem_list:
+    sys.stdout.write(i + '\n')
+
+for i in range(0, mem_num):
+    sys.stdout.write("0000000000000000" + "\n")
